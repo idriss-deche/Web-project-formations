@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panier - Gestion des Formations</title>
+
+    <style>
+      :root {
+        --primary: #0077cc;
+        --primary-dark: #003366;
+        --secondary-color: #001122;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: 80px 1fr;
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .leftg {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      /* LOGO */
+      .logo p {
+        font-weight: 700;
+        font-size: 24px;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+
+      /* NAVIGATION */
+      .navi {
+        display: flex;
+        gap: 5px;
+      }
+
+      .navi a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navi a::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 60%;
+        height: 2px;
+        background: white;
+        transition: transform 0.3s ease;
+      }
+
+      .navi a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .navi a.active::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      /* LOGIN BUTTON */
+      .navout a {
+        color: rgb(212, 0, 0);
+        background: transparent;
+        border: 2px solid rgba(212, 0, 0, 0.961);
+        padding: 10px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .navout a:hover {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+      /* MAIN CONTENT */
+      main {
+        grid-row: 2/3;
+        padding: 30px;
+        background-color: #f9fafb;
+      }
+
+      section {
+        width: 70%;
+        justify-content: center;
+        background: white;
+        margin-top: 40px;
+        margin-left: 15%;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.227);
+      }
+
+      h2 {
+        text-align: center;
+        color: var(--primary-dark);
+        font-size: 28px;
+        border-bottom: 3px solid var(--primary);
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+
+      /* TABLE STYLE */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 25px;
+        margin-bottom: 25px;
+      }
+
+      th,td {
+        border: 1px solid var(--border-color);
+        padding: 12px 10px;
+        text-align: center;
+      }
+
+      th {
+        background-color: var(--primary-dark);
+        color: white;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+
+      /* BUTTONS */
+      button {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      button:hover {
+        background-color: var(--primary-dark);
+  
+      }
+
+      input[type="text"] {
+        background-color: white;
+        border: 1px solid;
+        padding: 6px 10px;
+        border-radius: 4px;
+      }
+
+      input[type="submit"] {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+      }
+
+      input[type="submit"]:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .exp {
+        color: var(--primary-dark);
+        font-weight: bold;
+      }
+
+      .exp:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="leftg">
+        <div class="logo">
+          <p>logo</p>
+        </div>
+        <div class="navi">
+          <a href="home.html">Accueil</a>
+          <a href="formations.html">Formations</a>
+          <a href="evenements.html">Événements</a>
+          <a href="panier.html" class="active">Panier</a>
+          <a href="../docs/apropos.html">À propos / FAQ / Blog</a>
+        </div>
+      </div>
+      <div class="navout">
+        <a href="login.html">Déconnecter</a>
+      </div>
+    </header>
+
+    <main>
+      <h2>Votre Panier</h2>
+      <section>
+        <p>
+          Voici la liste des formations que vous avez ajoutées à votre panier :
+        </p>
+
+        <form action="paiement.html" method="get">
+          <table>
+            <thead>
+              <tr>
+                <th>Nom de la formation</th>
+                <th>Formateur</th>
+                <th>Durée</th>
+                <th>Prix (DZD)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Développement Web Full Stack</td>
+                <td>Idriss Deche</td>
+                <td>3 semaines</td>
+                <td>35 000</td>
+                <td><button type="button">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td>Formation Front-end</td>
+                <td>Ibrahim Deche</td>
+                <td>4 semaines</td>
+                <td>25 000</td>
+                <td><button type="button">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td>Cloud Computing AWS</td>
+                <td>Ahmed Benoua</td>
+                <td>4 semaines</td>
+                <td>40 000</td>
+                <td><button type="button">Supprimer</button></td>
+              </tr>
+              <tr>
+                <td>Introduction à la Cybersécurité</td>
+                <td>Ahmed Benoua</td>
+                <td>4 semaines</td>
+                <td>22 000</td>
+                <td><button type="button">Supprimer</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            <strong>Total général :</strong>
+            <input type="text" name="montant" value="122 000" readonly /> DZD
+          </p>
+
+          <p style="margin-top: 20px">
+            <a href="formations.html" class="exp">← Continuer à explorer</a>
+            <input
+              type="submit"
+              value="Procéder au paiement →"
+              style="float: right"
+            />
+          </p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

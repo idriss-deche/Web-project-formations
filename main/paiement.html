@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paiement - Gestion des Formations</title>
+
+    <style>
+      :root {
+        --primary: #0077cc;
+        --primary-dark: #003366;
+        --secondary-color: #001122;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: 80px 1fr auto;
+        min-height: 100vh;
+        background-color: #f9fafb;
+      }
+
+      /* HEADER */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .leftg {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      /* LOGO */
+      .logo p {
+        font-weight: 700;
+        font-size: 24px;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+
+      /* NAVIGATION */
+      .navi {
+        display: flex;
+        gap: 5px;
+      }
+
+      .navi a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      /* LOGIN BUTTON */
+      .navout a {
+        color: rgb(212, 0, 0);
+        background: transparent;
+        border: 2px solid rgba(212, 0, 0, 0.961);
+        padding: 10px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .navout a:hover {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+      /* MAIN */
+      main {
+        grid-row: 2/3;
+        padding: 40px;
+      }
+
+      section {
+        width: 70%;
+        background: white;
+        margin: 40px auto;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.227);
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--primary-dark);
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 28px;
+        border-bottom: 3px solid var(--primary);
+        display: inline-block;
+        padding-bottom: 5px;
+        margin-left: 50%;
+        transform: translateX(-50%);
+      }
+
+      h4 {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: var(--primary-dark);
+        margin-top: 20px;
+      }
+
+      h4 img {
+        width: 22px;
+        height: 22px;
+        border-radius: 4px;
+        object-fit: cover;
+      }
+
+      p {
+        margin: 10px 0;
+        color: #333;
+      }
+
+      label {
+        font-weight: bold;
+        color: var(--primary-dark);
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="file"],
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      input[type="submit"],
+      input[type="reset"] {
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s;
+        margin-right: 10px;
+      }
+
+      input[type="submit"]:hover,
+      input[type="reset"]:hover {
+        background-color: var(--primary-dark);
+      }
+
+      .retourpanier {
+        color: var(--primary-dark);
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      .retourpanier:hover {
+        color: var(--primary);
+        text-decoration: underline;
+      }
+
+      footer {
+        grid-row: 3/4;
+        text-align: center;
+        background-color: var(--primary-dark);
+        color: white;
+        padding: 15px 0;
+        font-size: 14px;
+      }
+
+      hr {
+        border: none;
+        border-top: 2px solid #ddd;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="leftg">
+        <div class="logo">
+          <p>logo</p>
+        </div>
+        <div class="navi">
+          <a href="home.html">Accueil</a>
+          <a href="formations.html">Formations</a>
+          <a href="evenements.html">Événements</a>
+          <a href="panier.html">Panier</a>
+          <a href="../docs/apropos.html">À propos / FAQ / Blog</a>
+        </div>
+      </div>
+      <div class="navout">
+        <a href="login.html">Déconnecter</a>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Page de Paiement</h2>
+
+        <p><strong>Nom :</strong> Idriss Deche</p>
+        <p><strong>Email :</strong> idriss.Ahmed@gmail.com</p>
+        <p><strong>Montant à payer :</strong> <mark>122 000 DZD</mark></p>
+
+        <hr />
+
+        <h3><ins>Choisissez votre méthode de paiement</ins></h3>
+
+        <form>
+          <div>
+            <h4>Baridi Mob</h4>
+            <p>Numéro Baridi Mob : <strong>00246777855012345666</strong></p>
+            <p>
+              <label for="recu-baridi">Télécharger le reçu Baridi Mob :</label>
+              <input type="file" accept="image/*,application/pdf" />
+            </p>
+          </div>
+
+          <div id="ccp-info">
+            <h4>CCP</h4>
+            <p>Numéro CCP : <strong>12345678 - Clé 891</strong></p>
+            <p>
+              <label for="recu-ccp">Télécharger le reçu CCP :</label>
+              <input type="file" accept="image/*,application/pdf" />
+            </p>
+          </div>
+
+          <div id="card-info">
+            <h4>Carte DAHABIA</h4>
+            <img
+              src="../z.image/e-paiement123-780x470.png"
+              height="200"
+              alt="Paiement"
+            />
+            <p>
+              <label for="card-number">Numéro de la carte :</label>
+              <input
+                type="text"
+                id="card-number"
+                name="card-number"
+                placeholder="xxxx xxxx xxxx xxxx"
+                maxlength="19"
+              />
+            </p>
+            <p>
+              <label for="card-name">Nom sur la carte :</label>
+              <input
+                type="text"
+                id="card-name"
+                name="card-name"
+                placeholder="Nom et prénom"
+              />
+            </p>
+            <p>
+              <label for="card-exp">Date d'expiration (MM/AA) :</label>
+              <input
+                type="text"
+                id="card-exp"
+                name="card-exp"
+                placeholder="MM/AA"
+                maxlength="5"
+              />
+            </p>
+            <p>
+              <label for="card-cvv">CVV :</label>
+              <input
+                type="text"
+                id="card-cvv"
+                name="card-cvv"
+                placeholder="xxx"
+                maxlength="4"
+              />
+            </p>
+          </div>
+
+          <p>
+            <input type="submit" value="Confirmer le paiement" />
+            <input type="reset" value="Annuler" />
+          </p>
+        </form>
+
+        <p style="margin-top: 20px">
+          <a href="panier.html" class="retourpanier">← Retour au panier</a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 Plateforme de Gestion des Formations - Tous droits réservés.</p>
+    </footer>
+  </body>
+</html>

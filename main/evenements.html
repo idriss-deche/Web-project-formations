@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Événements - Gestion des Formations</title>
+
+    <style>
+      :root {
+        --primary: #0077cc;
+        --primary-dark: #003366;
+        --secondary-color: #001122;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: 80px 1fr;
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      header {
+        background: linear-gradient(
+          135deg, 
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .leftg {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      /* LOGO */
+      .logo p {
+        font-weight: 700;
+        font-size: 24px;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+
+      /* NAVIGATION */
+      .navi {
+        display: flex;
+        gap: 5px;
+      }
+
+      .navi a {
+        text-decoration: none;
+        color: white;
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navi a::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 60%;
+        height: 2px;
+        background: white;
+        transition: transform 0.3s ease;
+      }
+
+      .navi a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .navi a.active::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      /* LOGIN BUTTON */
+      .navout a {
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 10px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .navout a:hover {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+      /* MAIN SECTION */
+      main {
+        grid-row: 2/3;
+        padding: 50px;
+        background-color: #f3f4f6;
+        text-align: center;
+      }
+
+      h2 {
+        font-size: 26px;
+        border-bottom: 3px solid var(--primary);
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      /* EVENT GRID */
+      .event-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 30px;
+      }
+
+      /* EVENT CARD */
+      .event-card {
+        background-color: #f8fafc;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        position: relative;
+      }
+
+      .event-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .event-card img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+      }
+
+      /* DATE BADGE */
+      .date-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--badge-bg);
+        color: white;
+        border-radius: 50%;
+        width: 65px;
+        height: 65px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-size: 14px;
+      }
+
+      /* EVENT INFO */
+      .event-info {
+        padding: 20px;
+        text-align: left;
+      }
+
+      .event-info h3 {
+        color: var(--secondary-color);
+        margin-bottom: 8px;
+        font-size: 18px;
+      }
+
+      .event-info p {
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-color);
+      }
+
+      /* TAG LABEL */
+      .tag {
+        display: inline-block;
+        background-color: var(--primary);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="leftg">
+        <div class="logo">
+          <p>logo</p>
+        </div>
+        <div class="navi">
+          <a href="home.html">Accueil</a>
+          <a href="formations.html">Formations</a>
+          <a href="evenements.html" class="active">Événements</a>
+          <a href="panier.html">Panier</a>
+          <a href="../docs/apropos.html">À propos / FAQ / Blog</a>
+        </div>
+      </div>
+      <div class="navout">
+        <a href="login.html">Se connecter</a>
+      </div>
+    </header>
+
+    <main>
+      <h2>ÉVÉNEMENTS</h2>
+
+      <div class="event-grid">
+        <div class="event-card">
+          <img src="../z.image/campaign-events-design-template-fb1108f5a6e76338ab796eeb98d5a964_screen.jpg" alt="Conférence IA" />
+          <div class="date-badge"><span>03</span><span>NOV</span></div>
+          <div class="event-info">
+            <div class="tag">évènement</div>
+            <h3>
+              1st International Conference on Intelligent Computer Systems
+            </h3>
+            <p>
+              The conference on Data Science and AI will take place in Blida,
+              November 2025.
+            </p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="../z.image/1757604125349.jpeg" alt="Médecine Physique" />
+          <div class="date-badge"><span>24</span><span>APR</span></div>
+          <div class="event-info">
+            <div class="tag">évènement</div>
+            <h3>2èmes Journées Internationales de Médecine Physique</h3>
+            <p>
+              Join professionals and researchers at CHU Blida for two days of
+              conferences.
+            </p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="../z.image/abstract-poster-event-template-fluid-shapes-composition-modern-event-poster-template-futuristic-design-posters-liquid-color-152203412.jpg.webp" alt="Sécurité Informatique" />
+          <div class="date-badge"><span>20</span><span>NOV</span></div>
+          <div class="event-info">
+            <div class="tag">évènement</div>
+            <h3>Atelier sur la Sécurité des Réseaux Informatiques</h3>
+            <p>
+              Hands-on training in cybersecurity and data protection at the
+              training center in Alger.
+            </p>
+          </div>
+        </div>
+
+        <div class="event-card">
+          <img src="../z.image/images.jpeg" alt="Symposium Biologie" />
+          <div class="date-badge"><span>28</span><span>MAY</span></div>
+          <div class="event-info">
+            <div class="tag">évènement</div>
+            <h3>2ème Symposium National de Biologie & Bioproduits</h3>
+            <p>
+              Scientific event on Biotechnologies and Pharmacology at the
+              University of Blida 1.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos / FAQ / Blog</title>
+
+    <style>
+      :root {
+        --primary: #0077cc;
+        --primary-dark: #003366;
+        --secondary-color: #001122;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: 80px 1fr;
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+        color: white;
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .leftg {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      /* LOGO */
+      .logo p {
+        font-weight: 700;
+        font-size: 24px;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+
+      /* NAVIGATION */
+      .navi {
+        display: flex;
+        gap: 5px;
+      }
+
+      .navi a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navi a::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 60%;
+        height: 2px;
+        background: white;
+        transition: transform 0.3s ease;
+      }
+
+      .navi a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .navi a.active::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      /* LOGIN BUTTON */
+      .navout a {
+        color: white;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 10px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .navout a:hover {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+      /* MAIN CONTENT */
+      main {
+        grid-row: 2 / 3;
+        max-width: 1000px;
+        padding: 40px 50px;
+      }
+
+      h1 {
+        text-align: center;
+        color: var(--primary-dark);
+        margin-bottom: 40px;
+        font-size: 28px;
+        border-bottom: 3px solid var(--primary);
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      section {
+        margin-bottom: 40px;
+      }
+
+      section h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 22px;
+        border-left: 4px solid var(--primary-dark);
+        padding-left: 10px;
+      }
+
+      p {
+        margin-bottom: 10px;
+        line-height: 1.6;
+      }
+
+      /* FAQ STYLING */
+      .faq p strong {
+        color: var(--primary-dark);
+      }
+
+      /* BLOG ARTICLES */
+      article {
+        background: #f5f7fa;
+        border: 1px solid #d0d7de;
+        border-radius: 8px;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+      }
+
+      article h3 {
+        color: var(--primary-dark);
+        margin-bottom: 5px;
+      }
+
+      article p {
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="leftg">
+        <div class="logo">
+          <p>logo</p>
+        </div>
+        <div class="navi">
+          <a href="../main/home.html">Accueil</a>
+          <a href="../main/formations.html">Formations</a>
+          <a href="../main/evenements.html">Événements</a>
+          <a href="../main/panier.html">Panier</a>
+          <a href="apropos.html" class="active">À propos / FAQ / Blog</a>
+        </div>
+      </div>
+      <div class="navout">
+        <a href="login.html">Se connecter</a>
+      </div>
+    </header>
+
+    <main>
+      <h1>À propos / FAQ / Blog</h1>
+
+      <section>
+        <h2>À propos</h2>
+        <p>
+          Notre plateforme permet de gérer les formations et certifications en
+          ligne. Nous aidons les apprenants à se former efficacement avec des
+          formateurs expérimentés dans divers domaines.
+        </p>
+      </section>
+
+      <section class="faq">
+        <h2>FAQ (Foire Aux Questions)</h2>
+
+        <p>
+          <strong>Q :</strong> Comment m'inscrire à une formation ?<br />
+          <strong>R :</strong> Vous pouvez créer un compte puis choisir la
+          formation souhaitée sur la page <em>Formations</em>.
+        </p>
+
+        <p>
+          <strong>Q :</strong> Quels sont les moyens de paiement ?<br />
+          <strong>R :</strong> CCP, BaridiMob, et carte Dahabia.
+        </p>
+
+        <p>
+          <strong>Q :</strong> Puis-je annuler mon inscription ?<br />
+          <strong>R :</strong> Oui, contactez le support avant le début de la
+          formation.
+        </p>
+
+        <p>
+          <strong>Q :</strong> Les cours sont-ils certifiants ?<br />
+          <strong>R :</strong> Oui, une attestation est délivrée à la fin de
+          chaque formation réussie.
+        </p>
+      </section>
+
+      <section>
+        <h2>Blog</h2>
+
+        <article>
+          <h3>Les avantages de la formation en ligne</h3>
+          <p>
+            La formation en ligne vous permet d'apprendre à votre rythme, où que
+            vous soyez. C’est une solution flexible pour développer vos
+            compétences.
+          </p>
+        </article>
+
+        <article>
+          <h3>Nouvelles certifications 2025</h3>
+          <p>
+            Découvrez les nouvelles formations certifiantes ajoutées à notre
+            catalogue pour 2025 : IA, cybersécurité et développement web.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

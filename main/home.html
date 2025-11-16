@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Gestion des Formations</title>
+    <style>
+        :root {
+            --primary: #0077cc;
+            --primary-dark: #003366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: grid;
+            grid-template-rows: 80px 630px 650px auto auto;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        header {
+        background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+        color: white;
+        grid-row: 1/2;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .leftg {
+        display: flex;
+        align-items: center;
+        gap: 60px;
+      }
+
+      /* LOGO */
+      .logo p {
+        font-weight: 700;
+        font-size: 24px;
+        color: white;
+        letter-spacing: 0.5px;
+      }
+
+      /* NAVIGATION */
+      .navi {
+        display: flex;
+        gap: 5px;
+      }
+
+      .navi a {
+        text-decoration: none;
+        color: rgba(255, 255, 255, 0.9);
+        padding: 10px 20px;
+        font-weight: 500;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .navi a::after {
+        content: "";
+        position: absolute;
+        bottom: 8px;
+        left: 50%;
+        transform: translateX(-50%) scaleX(0);
+        width: 60%;
+        height: 2px;
+        background: #ffffff;
+        transition: transform 0.3s ease;
+      }
+
+      .navi a:hover::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      .navi a.active::after {
+        transform: translateX(-50%) scaleX(1);
+      }
+
+      /* LOGIN BUTTON */
+      .navout a {
+        color: white;
+        background: transparent;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        padding: 10px 24px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .navout a:hover {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+      }
+
+        /* HERO SECTION */
+        .hero {
+            grid-row: 2/3;
+            padding: 60px;
+            background: #f3f4f6;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        
+
+
+        .hero-badge {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            font-size: 2.8rem;
+            color: var(--primary-dark);
+            margin: 45px 0px 25px;
+        }
+
+        .hero-description {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 55px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+        }
+
+        .btn-secondary {
+            color: var(--primary);
+            padding: 14px 32px;
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* FORMATIONS */
+        .formations {
+            grid-row: 3/4;
+            padding: 30px;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: var(--primary-dark);
+            border-bottom: 3px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .section-subtitle {
+            margin-top: 9px;
+        }
+
+        .formations-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .formation-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.354);
+        }
+
+        .formation-image {
+            height: 180px;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .formation-content {
+            padding: 18px 25px;
+        }
+
+        .formation-badge {
+            background: #e8f5e9;
+            color: #27ae60;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .formation-title {
+            font-size: 18px;
+            margin: 20px 0 12px;
+        }
+
+        .formation-price {
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .btn-formation a{
+           background: black;
+           color: white;
+            text-decoration: none;
+            padding: 9px 128px;
+            border-radius: 8px;
+            font-weight: 550;
+            text-align: center;
+
+        }
+
+        /* Temoignage */
+        .testimonials {
+            grid-row: 4/5;
+            padding: 40px 50px;
+            background: #f3f4f6;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .testimonial-text {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* PARTNERS */
+        .partners {
+            grid-row: 5/6;
+            padding: 60px 50px;
+            background: white;
+        }
+
+        .partners-grid {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 25px;
+        }
+
+        .partner-logo {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.342);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+           
+        }
+
+        /* FOOTER */
+        footer {
+            grid-row: 6/7;
+            background: var(--primary-dark);
+            color: white;
+            padding: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            display: block;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="leftg">
+            <div class="logo"><p>logo</p></div>
+            <div class="navi">
+                <a href="index.html" class="active">Accueil</a>
+                <a href="formations.html">Formations</a>
+                <a href="evenements.html">Événements</a>
+                <a href="../docs/apropos.html">À propos / FAQ / Blog</a>
+            </div>
+        </div>
+        <div class="navout">
+            <a href="../docs/login.html">Se connecter</a>
+        </div>
+    </header>
+
+ 
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <span class="hero-badge">Solutions Business</span>
+                    <h1 class="hero-title">Élevez l'Apprentissage avec une Formation d'Entreprise Dirigée par des Experts</h1>
+                    <p class="hero-description">Donnez à votre équipe les moyens de prospérer dans le monde rapide d'aujourd'hui grâce à une formation flexible et immersive.</p>
+                    <div class="hero-buttons">
+                        <a href="formations.html" class="btn-primary">Voir les Informations</a>
+                        <a href="../docs/login.html" class="btn-secondary">En savoir plus</a>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="../z.image/conference-pour-bienvenue-event.webp" width='600' height='400' >
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- FORMATIONS -->
+        <section class="formations">
+            <div class="section-header">
+                <h2 class="section-title">Formations Populaires</h2>
+                <p class="section-subtitle">Découvrez nos formations les plus demandées</p>
+            </div>
+            <div class="formations-grid">
+                <div class="formation-card">
+                    <div class="formation-image">💻</div>
+                    <div class="formation-content">
+                        <span class="formation-badge">Débutant</span>
+                        <h3 class="formation-title">Développement Web Full Stack</h3>
+                        <div class="formation-price">25 000 DZD</div>
+                        <div class="btn-formation">
+                        <a href="formulaire.html" >S'inscrire</a></div>
+                    </div>
+                </div>
+                <div class="formation-card">
+                    <div class="formation-image" >📊</div>
+                    <div class="formation-content">
+                        <span class="formation-badge">Intermédiaire</span>
+                        <h3 class="formation-title">Data Science & Analytics</h3>
+                        <div class="formation-price">32 000 DZD</div>
+                        <div class="btn-formation">
+                        <a href="formulaire.html" >S'inscrire</a></div>
+                    </div>
+                  
+                </div>
+                <div class="formation-card">
+                    <div class="formation-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">☁️</div>
+                    <div class="formation-content">
+                        <span class="formation-badge">Avancé</span>
+                        <h3 class="formation-title">Cloud Computing AWS</h3>
+                        <div class="formation-price">40 000 DZD</div>
+                        <div class="btn-formation">
+                        <a href="formulaire.html" >S'inscrire</a></div>
+                    </div>
+                  
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="formations.html" class="btn-primary" style="display: inline-block;">Voir toutes les formations →</a>
+            </div>
+        </section>
+
+        <!-- TEMOIGNAGE -->
+        <section class="testimonials">
+            <div class="section-header">
+                <h2 class="section-title">Témoignages</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Une expérience exceptionnelle ! Les formateurs sont très compétents et le contenu est parfaitement structuré."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AM</div>
+                        <div>
+                            <h4>Ahmed Messaoudi</h4>
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"La qualité des formations est remarquable. L'approche pratique m'a permis de comprendre en profondeur."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SB</div>
+                        <div>
+                            <h4>Sarah Benali</h4>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Je recommande vivement ces formations. Les certifications obtenues sont reconnues par les entreprises."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">KL</div>
+                        <div>
+                            <h4>Karim Larbi</h4>
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERS -->
+        <section class="partners">
+            <div class="section-header">
+                <h2 class="section-title">Nos Partenaires</h2>
+            </div>
+            <div class="partners-grid">
+                <div class="partner-logo">
+                    <img src="../z.image/Nvidia_logo.png" alt="NVIDIA">
+                </div>
+                <div class="partner-logo">
+                    <img src="../z.image/cisco-partner-logo2-630x420.png.avif" alt="Cisco Academy">
+                </div>
+                <div class="partner-logo">
+                    <img src="../z.image/ppi_720x949_microsoftsolutionspartner.png" alt="Microsoft Learn">
+                </div>
+                <div class="partner-logo">
+                    <img src="../z.image/Google_Cloud_Partner-2.png" alt="Google Cloud">
+                </div>
+            </div>
+        </section>
+  
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À Propos</h3>
+                <p>Plateforme de formation professionnelle et certification.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <a href="formations.html">Formations</a>
+                <a href="evenements.html">Événements</a>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>📧 Idriss.Ahmed@formation.dz</p>
+                <p>📞 +213 791 214 348</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Plateforme de Formation</p>
+        </div>
+    </footer>
+</body>
+</html>
