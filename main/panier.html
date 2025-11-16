@@ -63,32 +63,13 @@
 
       .navi a {
         text-decoration: none;
-        color: rgba(255, 255, 255, 0.9);
+        color: white;
         padding: 10px 20px;
         font-weight: 500;
         font-size: 15px;
-        transition: all 0.3s ease;
-        position: relative;
       }
-
-      .navi a::after {
-        content: "";
-        position: absolute;
-        bottom: 8px;
-        left: 50%;
-        transform: translateX(-50%) scaleX(0);
-        width: 60%;
-        height: 2px;
-        background: white;
-        transition: transform 0.3s ease;
-      }
-
-      .navi a:hover::after {
-        transform: translateX(-50%) scaleX(1);
-      }
-
-      .navi a.active::after {
-        transform: translateX(-50%) scaleX(1);
+      .navi a:hover {
+        text-decoration: underline;
       }
 
       /* LOGIN BUTTON */

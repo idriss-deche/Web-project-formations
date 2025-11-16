@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réinitialiser le mot de passe</title>
+  <style>
+    :root {
+      --primary: #0077cc;
+      --primary-dark: #003366;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: #f9fafb;
+    }
+    section {
+      background: white;
+      width: 400px;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+      text-align: center;
+    }
+    h2 {
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+    input[type="submit"] {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: var(--primary-dark);
+    }
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <h2>Réinitialiser le mot de passe</h2>
+    <p>Entrez votre e-mail et créez un nouveau mot de passe.</p>
+    <form action="loginpage.html" method="get">
+      <input type="email" name="email" placeholder="Votre e-mail" required />
+      <input type="password" name="new-password" placeholder="Nouveau mot de passe" required />
+      <input type="password" name="confirm-password" placeholder="Confirmer le mot de passe" required />
+      <input type="submit" value="Réinitialiser" />
+    </form>
+    <a href="loginpage.html">← Retour à la connexion</a>
+  </section>
+</body>
+</html>

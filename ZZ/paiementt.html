@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paiement - Gestion des Formations</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <h1><ins>PAGE DE PAIEMENT</ins></h1>
+      <img src="e-paiement123-780x470.png" height="200" />
+      <nav>
+        <a href="home.html">Accueil</a> |
+        <a href="formations.html">Formations</a> |
+        <a href="evenements.html">Événements</a> |
+        <a href="panier.html">Panier</a> |
+        <a href="../docs/apropos.html">À propos / FAQ / Blog</a>
+      </nav>
+    </header>
+
+    <hr />
+
+    <main>
+      <section>
+        <h2>Résumé du paiement</h2>
+
+        <p><strong>Nom :</strong> Idriss Deche</p>
+        <p><strong>Email :</strong> idriss.Ahmed@gmail.com</p>
+        <p><strong>Montant à payer :</strong> <mark>33 000 DZD</mark></p>
+
+        <hr />
+
+        <h3><ins>Choisissez votre méthode de paiement</ins></h3>
+
+        <form>
+          <div>
+            <h4>Baridi Mob</h4>
+            <p>Numéro Baridi Mob : <strong>00246777855012345666</strong></p>
+            <p>
+              <label for="recu-baridi">Télécharger le reçu Baridi Mob :</label>
+              <input type="file" accept="image/*,application/pdf" />
+            </p>
+          </div>
+
+          <div id="ccp-info">
+            <h4>CCP</h4>
+            <p>Numéro CCP : <strong>12345678 - Clé 891</strong></p>
+            <p>
+              <label for="recu-ccp">Télécharger le reçu CCP :</label>
+              <input type="file" accept="image/*,application/pdf" />
+            </p>
+          </div>
+
+          <div id="card-info">
+            <h4>Carte DAHABIA</h4>
+            <p>
+              <label for="card-number">Numéro de la carte :</label>
+              <input
+                type="text"
+                id="card-number"
+                name="card-number"
+                inputmode="numeric"
+                placeholder="xxxx xxxx xxxx xxxx"
+                maxlength="19"
+              />
+            </p>
+            <p>
+              <label for="card-name">Nom sur la carte :</label>
+              <input
+                type="text"
+                id="card-name"
+                name="card-name"
+                placeholder="Nom et prénom"
+              />
+            </p>
+            <p>
+              <label for="card-exp">Date d'expiration (MM/AA) :</label>
+              <input
+                type="text"
+                id="card-exp"
+                name="card-exp"
+                placeholder="MM/AAAA"
+                maxlength="5"
+              />
+            </p>
+            <p>
+              <label for="card-cvv">CVV :</label>
+              <input
+                type="text"
+                id="card-cvv"
+                name="card-cvv"
+                inputmode="numeric"
+                placeholder="xxx"
+                maxlength="4"
+              />
+            </p>
+          </div>
+
+          <p>
+            <input type="submit" value="Confirmer le paiement" />
+            <input type="reset" value="Annuler" />
+          </p>
+        </form>
+
+        <p><a href="panier.html">← Retour au panier</a></p>
+      </section>
+    </main>
+
+  
+
+    
+  </body>
+</html>
