@@ -19,7 +19,7 @@
 
         body {
             display: grid;
-            grid-template-rows: 80px 630px 650px auto auto;
+            grid-template-rows: 80px 630px 650px auto auto auto;
             min-height: 100vh;
         }
 
@@ -32,22 +32,14 @@
         align-items: center;
         justify-content: space-between;
         padding: 30px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       }
 
-      .leftg {
+      .lefth {
         display: flex;
         align-items: center;
         gap: 60px;
       }
 
-      /* LOGO */
-      .logo p {
-        font-weight: 700;
-        font-size: 24px;
-        color: white;
-        letter-spacing: 0.5px;
-      }
 
       /* NAVIGATION */
       .navi {
@@ -359,10 +351,12 @@
 </head>
 <body>
     <header>
-        <div class="leftg">
-            <div class="logo"><p>logo</p></div>
+        <div class="lefth">
+            <div class="logo">
+                <img src="#" />
+            </div>
             <div class="navi">
-                <a href="index.html" class="active">Accueil</a>
+                <a href="home.html" class="active">Accueil</a>
                 <a href="formations.html">Formations</a>
                 <a href="evenements.html">Événements</a>
                 <a href="../docs/apropos.html">À propos / FAQ / Blog</a>
@@ -392,9 +386,7 @@
             </div>
         </section>
 
-        
-
-        <!-- FORMATIONS -->
+    
         <section class="formations">
             <div class="section-header">
                 <h2 class="section-title">Formations Populaires</h2>
@@ -402,7 +394,9 @@
             </div>
             <div class="formations-grid">
                 <div class="formation-card">
-                    <div class="formation-image">💻</div>
+                    <div class="formation-image" >
+                        <img src="#" />
+                    </div>
                     <div class="formation-content">
                         <span class="formation-badge">Débutant</span>
                         <h3 class="formation-title">Développement Web Full Stack</h3>
@@ -412,7 +406,9 @@
                     </div>
                 </div>
                 <div class="formation-card">
-                    <div class="formation-image" >📊</div>
+                    <div class="formation-image" >
+                        <img src="#" />
+                    </div>
                     <div class="formation-content">
                         <span class="formation-badge">Intermédiaire</span>
                         <h3 class="formation-title">Data Science & Analytics</h3>
@@ -423,7 +419,9 @@
                   
                 </div>
                 <div class="formation-card">
-                    <div class="formation-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">☁️</div>
+                    <div class="formation-image" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">  
+                        <img src="#" />
+                    </div>
                     <div class="formation-content">
                         <span class="formation-badge">Avancé</span>
                         <h3 class="formation-title">Cloud Computing AWS</h3>
@@ -448,9 +446,9 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Une expérience exceptionnelle ! Les formateurs sont très compétents et le contenu est parfaitement structuré."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">AM</div>
+                        <div class="author-avatar">ID</div>
                         <div>
-                            <h4>Ahmed Messaoudi</h4>
+                            <h4>Idriss Deche</h4>
                            
                         </div>
                     </div>
@@ -458,9 +456,9 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"La qualité des formations est remarquable. L'approche pratique m'a permis de comprendre en profondeur."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SB</div>
+                        <div class="author-avatar">AB</div>
                         <div>
-                            <h4>Sarah Benali</h4>
+                            <h4>Ahmed Benoua</h4>
                             
                         </div>
                     </div>
@@ -468,9 +466,9 @@
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Je recommande vivement ces formations. Les certifications obtenues sont reconnues par les entreprises."</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">KL</div>
+                        <div class="author-avatar">BD</div>
                         <div>
-                            <h4>Karim Larbi</h4>
+                            <h4>Brahim Deche</h4>
                        
                         </div>
                     </div>

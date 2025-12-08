@@ -34,16 +34,6 @@
             max-width: 500px;
         }
 
-        .logo {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .logo p {
-            font-weight: 700;
-            font-size: 32px;
-            color: var(--primary);
-        }
 
         h2 {
             color: var(--primary-dark);
@@ -143,11 +133,11 @@
         <h2>Créer un compte</h2>
         <p class="subtitle">Rejoignez notre plateforme de formation</p>
 
-        <form action="login.html" method="post">
+        <form action="../signup.php" method="post">
             <div class="form-row">
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+                    <input type="text" id="name" name="name" placeholder="Votre nom" required>
                 </div>
                 <div class="form-group">
                     <label for="prenom">Prénom</label>
@@ -167,7 +157,7 @@
             <label for="confirm-password">Confirmer mot de passe</label>
             <input type="password" id="confirm-password" name="confirm-password" placeholder="********" required>
 
-            <button type="submit">S'inscrire</button>
+            <button type="submit" name="submit">S'inscrire</button>
 
             <div class="links">
                 <p>Vous avez déjà un compte ? <a href="login.html">Se connecter</a></p>
