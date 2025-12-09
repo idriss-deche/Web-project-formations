@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
 
     if(password_verify($password, $row['mot_de_passe'])){
         echo "<h1>hello<h1/>"; } else {
-            echo "wrong password"; }
+            echo "wrong mot de passe"; }
         }
 
 
