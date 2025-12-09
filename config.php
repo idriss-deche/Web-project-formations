@@ -8,5 +8,6 @@ $mysqli = mysqli_connect($host, $username, $password, $dbname);
 
 if(!$mysqli) {
     echo "connexion échoué";
+} else {
 }
 ?>

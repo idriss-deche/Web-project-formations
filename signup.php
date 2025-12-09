@@ -16,7 +16,7 @@ $hash_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO UTILISATEUR (email, mot_de_passe, nom, prenom , telephone) VALUES ('$email', '$hash_password', '$name', '$prenom', '$telephone')";
 
 if(mysqli_query($mysqli, $sql)) {
-    echo 'sign up seccussful!';
+    header("location: gologin.html");
 } else {
     echo 'error' . mysqli_error($mysqli);
 }}

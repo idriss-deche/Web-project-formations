@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --primary: #0077cc;
+            --primary-dark: #003366;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        .cadre{
+        background: white;
+            padding: 40px 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 500px;
+            height: 150px;
+        }
+        h2{
+            color: rgb(7, 185, 7);
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        p{
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cadre">
+<h2>Signed up seccessfully</h2>
+<p> register now in: <a href="docs/login.html">login page</a></p>
+    </div>
+</body>
+</html>
